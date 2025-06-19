@@ -24,4 +24,5 @@ jobs:
       - name: Executing on any branch
         run: ech "Executing on any branch"
       - name: Sending errors
+        if: ${{ failure() }}
         run: echo "This step will always run, even if previous steps fail"
