@@ -22,4 +22,6 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         run: echo "Executing on main branch"
       - name: Executing on any branch
-        run: echo "Executing on any branch"
+        run: ech "Executing on any branch"
+      - name: Sending errors
+        run: echo "This step will always run, even if previous steps fail"
