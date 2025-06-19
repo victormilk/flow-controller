@@ -21,3 +21,5 @@ jobs:
       - name: Executing on main
         if: ${{ github.ref == 'refs/heads/main' }}
         run: echo "Executing on main branch"
+      - name: Executing on any branch
+        run: echo "Executing on any branch"
