@@ -1,0 +1,10 @@
+name: Event Workflow
+on:
+    push:
+jobs:
+    only-main:
+        name: This job runs only on the main branch
+        runs-on: ubuntu-latest
+        steps:
+            - name: Executing on main branch
+              run: echo "Executing on main branch"
