@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Executing on feature
-        if: ${{ github.ref == 'refs/heads/feature' }}
+        if: ${{ contains(github.ref,'refs/heads/feature') }}
         run: echo "Executing on feature branch"
       - name: Executing on Hotfix
-        if: ${{ github.ref == 'refs/heads/hotfix' }}
+        if: ${{ contains(github.ref,'refs/heads/hotfix') }}
         run: echo "Executing on hotfix branch"
       - name: Executing on main
         if: ${{ github.ref == 'refs/heads/main' }}
