@@ -2,8 +2,13 @@ name: Workflow for Concurrency
 run-name: Workflow for Concurrency ${{ github.run_number }}
 on:
   workflow_dispatch:
+    inputs:
+      key:
+        type: string
+        description: 'Key for concurrency control'
+        default: pipeline-class
 concurrency:
-  group: pipeline-class
+  group: ${{ github.event.inputs.key }}
 jobs:
   example-flow-exec-01:
     runs-on: ubuntu-latest
