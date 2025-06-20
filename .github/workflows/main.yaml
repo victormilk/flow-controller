@@ -9,6 +9,7 @@ jobs:
         run: l
   example-flow-exec-02:
     runs-on: ubuntu-latest
+    needs: [ example-flow-exec-01 ]
     steps:
       - name: Execution with success
         run: echo "This step should succeed"
