@@ -2,6 +2,8 @@ name: Workflow for Concurrency
 run-name: Workflow for Concurrency ${{ github.run_number }}
 on:
   workflow_dispatch:
+concurrency:
+  group: pipeline-class
 jobs:
   example-flow-exec-01:
     runs-on: ubuntu-latest
