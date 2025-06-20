@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ inputs.key }}
+      cancel-in-progress: true
     steps:
       - name: Execution of Job Test
         run: |
