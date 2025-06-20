@@ -8,7 +8,7 @@ on:
         description: 'Key for concurrency control'
         default: pipeline-class
 concurrency:
-  group: ${{ github.event.inputs.key }}
+  group: ${{ inputs.key }}
 jobs:
   example-flow-exec-01:
     runs-on: ubuntu-latest
