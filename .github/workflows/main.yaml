@@ -10,6 +10,7 @@ jobs:
   example-flow-exec-02:
     runs-on: ubuntu-latest
     needs: [ example-flow-exec-01 ]
+    if: ${{ failure() }}
     steps:
       - name: Execution with success
         run: echo "This step should succeed"
