@@ -7,13 +7,22 @@ on:
         type: string
         description: 'Key for concurrency control'
         default: pipeline-class
-concurrency:
-  group: ${{ inputs.key }}
 jobs:
   example-flow-exec-01:
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ inputs.key }}
     steps:
       - name: Execution of Job Test
         run: |
           sleep 120;
           echo "Action completed successfully on Job Test 01";
+
+  example-flow-exec-02:
+    runs-on: ubuntu-latest
+    needs: [ example-flow-exec-01 ]
+    steps:
+      - name: Execution of Job Test
+        run: |
+          sleep 120;
+          echo "Action completed successfully on Job Test 02";
