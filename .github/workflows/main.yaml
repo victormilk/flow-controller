@@ -1,19 +1,12 @@
-name: Matrix Workflow
+name: Workflow for Concurrency
+run-name: Workflow for Concurrency ${{ github.run_number }}
 on:
   workflow_dispatch:
 jobs:
-  example-flow-execution:
-    strategy:
-      matrix:
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
-        node-version: [ 16, 18, 20 ]
-    runs-on: ${{ matrix.os }}
+  example-flow-exec-01:
+    runs-on: ubuntu-latest
     steps:
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Show Node.js version and platform
+      - name: Execution of Job Test
         run: |
-          node --version
-          echo ${{ runner.os }}
+          sleep 120;
+          echo "Action completed successfully on Job Test 01";
