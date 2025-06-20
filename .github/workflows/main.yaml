@@ -2,27 +2,13 @@ name: Event Workflow
 on:
   push:
 jobs:
-  only-main:
-    if: ${{ github.ref == 'refs/heads/main' }}
-    name: This job runs only on the main branch
+  example-flow-exec-01:
     runs-on: ubuntu-latest
     steps:
-      - name: Executing on main branch
-        run: echo "Executing on main branch"
-  all:
+      - name: Should fail
+        run: l
+  example-flow-exec-02:
     runs-on: ubuntu-latest
     steps:
-      - name: Executing on feature
-        if: ${{ contains(github.ref,'refs/heads/feature') }}
-        run: echo "Executing on feature branch"
-      - name: Executing on Hotfix
-        if: ${{ contains(github.ref,'refs/heads/hotfix') }}
-        run: echo "Executing on hotfix branch"
-      - name: Executing on main
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: echo "Executing on main branch"
-      - name: Executing on any branch
-        run: ech "Executing on any branch"
-      - name: Sending errors
-        if: ${{ failure() }}
-        run: echo "This step will always run, even if previous steps fail"
+      - name: Execution with success
+        run: echo "This step should succeed"
